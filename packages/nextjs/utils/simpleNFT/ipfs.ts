@@ -4,9 +4,9 @@ export const ipfsClient = create({
   host: "localhost",
   port: 5001,
   protocol: "http",
-  headers: {
-    'x-api-key': `Basic ${Buffer.from(PROJECT_ID_SECRECT).toString("base64")}`,
-  },
+  // headers: {
+  //   'x-api-key': `Basic ${Buffer.from(PROJECT_ID_SECRECT).toString("base64")}`,
+  // },
 });
 
 export async function getNFTMetadataFromIPFS(ipfsHash: string) {

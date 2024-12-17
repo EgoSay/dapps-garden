@@ -57,7 +57,10 @@ const MyNFTs: NextPage = () => {
         {!isConnected || isConnecting ? (
           <RainbowKitCustomConnectButton />
         ) : (
-          <button className="btn btn-secondary" onClick={handleMintItem}>
+          <button 
+            className="btn btn-primary px-8 py-3 text-lg font-bold rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl text-white"
+            onClick={handleMintItem}
+          >
             Mint NFT
           </button>
         )}
