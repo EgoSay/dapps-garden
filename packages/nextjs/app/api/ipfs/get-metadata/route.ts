@@ -1,4 +1,4 @@
-import { getNFTMetadataFromIPFS } from "~~/utils/simpleNFT/ipfs";
+import { getNFTMetadataFromIPFS } from "~~/utils/simpleNFT/ipfs-pinata";
 
 export async function POST(request: Request) {
   try {

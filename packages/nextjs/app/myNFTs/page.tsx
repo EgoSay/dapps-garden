@@ -34,9 +34,10 @@ const MyNFTs: NextPage = () => {
       notification.remove(notificationId);
       notification.success("Metadata uploaded to IPFS");
 
+      // const urlPath = uploadedItem.path + "/" + uploadedItem.IpfsHash
       await writeContractAsync({
         functionName: "mintItem",
-        args: [connectedAddress, uploadedItem.path],
+        args: [connectedAddress, uploadedItem.IpfsHash],
       });
     } catch (error) {
       notification.remove(notificationId);
