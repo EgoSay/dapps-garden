@@ -20,14 +20,14 @@ const Home: NextPage = () => {
           </h1>
           <div className="flex flex-col items-center justify-center">
             <Image
-              src="/favicon.png"
+              src="/nft1.png"
               width="266"
               height="223"
               alt="challenge banner"
               className="rounded-xl border-4 border-primary"
             />
             <div className="max-w-3xl">
-              <p>11111</p>
+              <p>NFT marketplace</p>
             </div>
           </div>
         </div>

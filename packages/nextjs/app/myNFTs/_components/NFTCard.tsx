@@ -64,11 +64,10 @@ export const NFTCard = ({ nft }: { nft: Collectible }) => {
         </div>
 
         <div className="flex items-center space-x-2">
-          <AddressInput
+          <AddressInput 
             value={transferToAddress}
             placeholder="Receiver address"
             onChange={newValue => setTransferToAddress(newValue)}
-            className="flex-grow text-sm"
           />
           <Button
             size="sm"

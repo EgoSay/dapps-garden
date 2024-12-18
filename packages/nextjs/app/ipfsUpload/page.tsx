@@ -48,13 +48,13 @@ const IpfsUpload: NextPage = () => {
             src={yourJSON}
             theme="solarized"
             enableClipboard={false}
-            onEdit={edit => {
+            onEdit={(edit: { updated_src: object }) => {
               setYourJSON(edit.updated_src);
             }}
-            onAdd={add => {
+            onAdd={(add: { updated_src: object }) => {
               setYourJSON(add.updated_src);
             }}
-            onDelete={del => {
+            onDelete={(del: { updated_src: object }) => {
               setYourJSON(del.updated_src);
             }}
           />
