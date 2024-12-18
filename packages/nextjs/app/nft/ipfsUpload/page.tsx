@@ -60,7 +60,7 @@ const IpfsUpload: NextPage = () => {
           />
         )}
         <button
-          className={`btn btn-secondary mt-4 ${loading ? "loading" : ""}`}
+          className={`btn btn-secondary mt-4 px-8 py-3 text-lg font-bold rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl text-white" ${loading ? "loading" : ""}`}
           disabled={loading}
           onClick={handleIpfsUpload}
         >

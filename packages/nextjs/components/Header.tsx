@@ -9,12 +9,19 @@ import {
   ArrowUpTrayIcon,
   Bars3Icon,
   BugAntIcon,
+  CircleStackIcon,
+  InboxStackIcon,
   PhotoIcon,
 } from "@heroicons/react/24/outline";
 import { usePathname } from "next/navigation";
 import { FaucetButton, RainbowKitCustomConnectButton } from "~~/components/scaffold-eth";
 import { Button } from "~~/components/ui/button";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger } from "~~/components/ui/dropdown-menu";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuTrigger,
+  DropdownMenuItem,
+} from "~~/components/ui/dropdown-menu";
 import { useOutsideClick } from "~~/hooks/scaffold-eth";
 import { cn } from "~~/lib/utils";
 
@@ -22,6 +29,11 @@ type HeaderMenuLink = {
   label: string;
   href: string;
   icon?: React.ReactNode;
+  subItems?: Array<{
+    label: string;
+    href: string;
+    icon?: React.ReactNode;
+  }>;
 };
 
 export const menuLinks: HeaderMenuLink[] = [
@@ -30,14 +42,48 @@ export const menuLinks: HeaderMenuLink[] = [
     href: "/",
   },
   {
-    label: "My NFTs",
-    href: "/myNFTs",
+    label: "NFT",
+    href: "#",
     icon: <PhotoIcon className="h-4 w-4" />,
+    subItems: [
+      {
+        label: "My NFTs",
+        href: "/nft/myNFTs",
+        icon: <PhotoIcon className="h-4 w-4" />,
+      },
+      {
+        label: "Transfers",
+        href: "/nft/transfers",
+        icon: <ArrowPathIcon className="h-4 w-4" />,
+      },
+      {
+        label: "IPFS Upload",
+        href: "/nft/ipfsUpload",
+        icon: <ArrowUpTrayIcon className="h-4 w-4" />,
+      },
+      {
+        label: "IPFS Download",
+        href: "/nft/ipfsDownload",
+        icon: <ArrowDownTrayIcon className="h-4 w-4" />,
+      },
+    ],
   },
   {
-    label: "Transfers",
-    href: "/transfers",
-    icon: <ArrowPathIcon className="h-4 w-4" />,
+    label: "Stake",
+    href: "#",
+    icon: <CircleStackIcon className="h-4 w-4" />,
+    subItems: [
+      {
+        label: "Staker UI",
+        href: "/stake/staker-ui",
+        icon: <CircleStackIcon className="h-4 w-4" />,
+      },
+      {
+        label: "Stake Events",
+        href: "/stake/stakings",
+        icon: <InboxStackIcon className="h-4 w-4" />,
+      },
+    ],
   },
   {
     label: "Debug Contracts",
@@ -48,11 +94,55 @@ export const menuLinks: HeaderMenuLink[] = [
 
 export const HeaderMenuLinks = () => {
   const pathname = usePathname();
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
   return (
     <>
-      {menuLinks.map(({ label, href, icon }) => {
-        const isActive = pathname === href;
+      {menuLinks.map(({ label, href, icon, subItems }) => {
+        const isActive = pathname === href || (subItems?.some(item => pathname === item.href));
+
+        if (subItems) {
+          return (
+            <li key={label} className="list-none">
+              <DropdownMenu
+                open={openDropdown === label}
+                onOpenChange={(open) => setOpenDropdown(open ? label : null)}
+              >
+                <DropdownMenuTrigger asChild>
+                  <Button
+                    variant="ghost"
+                    className={cn(
+                      "flex items-center gap-2 px-3 py-1.5 text-sm rounded-full transition-colors",
+                      "hover:bg-secondary/80 hover:text-secondary-foreground",
+                      "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+                      isActive && "bg-secondary text-secondary-foreground shadow-sm",
+                    )}
+                  >
+                    {icon}
+                    <span>{label}</span>
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="start" className="w-52">
+                  {subItems.map((item) => (
+                    <DropdownMenuItem key={item.href} asChild>
+                      <Link
+                        href={item.href}
+                        className={cn(
+                          "flex items-center gap-2 px-3 py-2",
+                          pathname === item.href && "bg-secondary/50"
+                        )}
+                      >
+                        {item.icon}
+                        <span>{item.label}</span>
+                      </Link>
+                    </DropdownMenuItem>
+                  ))}
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </li>
+          );
+        }
+
         return (
           <li key={href} className="list-none">
             <Link
@@ -91,7 +181,12 @@ export const Header = () => {
         <div className="lg:hidden" ref={burgerMenuRef}>
           <DropdownMenu open={isDrawerOpen}>
             <DropdownMenuTrigger asChild>
-              <Button variant="ghost" size="sm" className={cn("px-2", isDrawerOpen && "bg-secondary")} onClick={() => setIsDrawerOpen(!isDrawerOpen)}>
+              <Button
+                variant="ghost"
+                size="sm"
+                className={cn("px-2", isDrawerOpen && "bg-secondary")}
+                onClick={() => setIsDrawerOpen(!isDrawerOpen)}
+              >
                 <Bars3Icon className="h-6 w-6" />
               </Button>
             </DropdownMenuTrigger>
@@ -108,7 +203,6 @@ export const Header = () => {
           </div>
           <div className="flex flex-col">
             <span className="font-bold leading-tight">Dapps-Garden</span>
-            {/* <span className="text-xs">Ethereum dev stack</span> */}
           </div>
         </Link>
         <nav className="hidden lg:flex items-center gap-2">
@@ -122,3 +216,4 @@ export const Header = () => {
     </header>
   );
 };
+

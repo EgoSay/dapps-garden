@@ -9,7 +9,7 @@ const fetchFromApi = ({ path, method, body }: { path: string; method: string; bo
     .then(response => response.json())
     .catch(error => console.error("Error:", error));
 
-export const addToIPFS = (yourJSON: object) => fetchFromApi({ path: "/api/ipfs/add", method: "Post", body: yourJSON });
+export const addToIPFS = (yourJSON: object) => fetchFromApi({ path: "/api/ipfs/add", method: "POST", body: yourJSON });
 
 export const getMetadataFromIPFS = (ipfsHash: string) =>
-  fetchFromApi({ path: "/api/ipfs/get-metadata", method: "Post", body: { ipfsHash } });
+  fetchFromApi({ path: "/api/ipfs/get-metadata", method: "POST", body: { ipfsHash } });

@@ -42,7 +42,12 @@ const IpfsDownload: NextPage = () => {
         </h1>
         <div className={`flex border-2 border-accent/95 bg-base-200 rounded-full text-accent w-96`}>
           <input
-            className="input input-ghost focus:outline-none focus:bg-transparent focus:text-secondary-content h-[2.2rem] min-h-[2.2rem] px-4 border w-full font-medium placeholder:text-accent/50 text-secondary-content/75"
+            // className="input input-ghost focus:outline-none focus:bg-transparent focus:text-secondary-content h-[2.2rem] min-h-[2.2rem] px-4 border w-full font-medium placeholder:text-accent/50 text-secondary-content/75"
+            className="input input-ghost focus:outline-none focus:bg-transparent h-[2.2rem] min-h-[2.2rem] px-4 border w-full font-medium 
+            placeholder:text-purple-400 placeholder:font-semibold placeholder:italic
+            text-blue-600 text-lg focus:text-indigo-700 focus:font-bold
+            transition-all duration-200 ease-in-out
+            border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
             placeholder="IPFS CID"
             value={ipfsPath}
             onChange={e => setIpfsPath(e.target.value)}
@@ -50,7 +55,7 @@ const IpfsDownload: NextPage = () => {
           />
         </div>
         <button
-          className={`btn btn-secondary my-6 ${loading ? "loading" : ""}`}
+          className={`btn btn-secondary my-6 px-8 py-3 text-lg font-bold rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl text-white"  ${loading ? "loading" : ""}`}
           disabled={loading}
           onClick={handleIpfsDownload}
         >
@@ -63,13 +68,13 @@ const IpfsDownload: NextPage = () => {
             src={yourJSON}
             theme="solarized"
             enableClipboard={false}
-            onEdit={edit => {
+            onEdit={(edit: { updated_src: object }) => {
               setYourJSON(edit.updated_src);
             }}
-            onAdd={add => {
+            onAdd={(add: { updated_src: object }) => {
               setYourJSON(add.updated_src);
             }}
-            onDelete={del => {
+            onDelete={(del: { updated_src: object }) => {
               setYourJSON(del.updated_src);
             }}
           />
