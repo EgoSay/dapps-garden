@@ -7,4 +7,8 @@ You'll learn how to use HardHat to compile and deploy your first smart contracts
 Then, you'll build a React app full of important Ethereum components and hooks.
 
 ## Decentralized Staking App 
-create a decentralized application where users can coordinate a group funding effort. If the users cooperate, the money is collected in a second smart contract. If they defect, the worst that can happen is everyone gets their money back
+Create a decentralized application where project teams can initiate fundraising at specific times, and any user can participate in the presale by paying ETH
+ ![dapps-garden-staking2](https://3bcaf57.webp.li/myblog/dapps-garden-staking2.png)
+- After the presale ends, if the fundraising target is not reached, users can claim refunds
+- If the presale is successful, users can claim reward Tokens and the project team can withdraw the raised ETH
+ ![dapps-garden-staking1](https://3bcaf57.webp.li/myblog/dapps-garden-staking1.png)
