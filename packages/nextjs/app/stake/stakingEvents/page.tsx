@@ -9,7 +9,7 @@ const Stakings: NextPage = () => {
   return (
     <EventList
       contractName="Staker"
-      eventName="Stake"
+      eventName="Staking"
       title="All Staking Events"
       columns={[
         {

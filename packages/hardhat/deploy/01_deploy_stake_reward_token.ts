@@ -2,16 +2,16 @@ import { HardhatRuntimeEnvironment } from "hardhat/types";
 import { DeployFunction } from "hardhat-deploy/types";
 
 /**
- * Deploys a contract named "Staker" using the deployer account and
+ * Deploys a contract named "YourContract" using the deployer account and
  * constructor arguments set to the deployer address
  *
  * @param hre HardhatRuntimeEnvironment object.
  */
-const deployStaker: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
+const deployStakeRewardToken: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
   /*
     On localhost, the deployer account is the one that comes with Hardhat, which is already funded.
 
-    When deploying to live networks (e.g `yarn deploy --network goerli`), the deployer account
+    When deploying to live networks (e.g `yarn deploy --network sepolia`), the deployer account
     should have sufficient balance to pay for the gas fees for contract creation.
 
     You can generate a random account with `yarn generate` which will fill DEPLOYER_PRIVATE_KEY
@@ -19,13 +19,10 @@ const deployStaker: DeployFunction = async function (hre: HardhatRuntimeEnvironm
     You can run the `yarn account` command to check your balance in every network.
   */
   const { deployer } = await hre.getNamedAccounts();
-  const { deploy, get } = hre.deployments;
-  const stakeRewardToken = await get("StakeRewardToken");
+  const { deploy } = hre.deployments;
 
-  await deploy("Staker", {
+  await deploy("StakeRewardToken", {
     from: deployer,
-    // Contract constructor arguments
-    args: [stakeRewardToken.address],
     log: true,
     // autoMine: can be passed to the deploy function to make the deployment process faster on local networks by
     // automatically mining the contract deployment transaction. There is no effect on live networks.
@@ -33,6 +30,6 @@ const deployStaker: DeployFunction = async function (hre: HardhatRuntimeEnvironm
   });
 };
 
-export default deployStaker;
+export default deployStakeRewardToken;
 
-deployStaker.tags = ["Staker"];
+deployStakeRewardToken.tags = ["StakeRewardToken"];
