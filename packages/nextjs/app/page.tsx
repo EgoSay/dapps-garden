@@ -1,12 +1,11 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import type { NextPage } from "next";
 // import { useAccount } from "wagmi";
 import { BugAntIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
-import { Card, CardContent } from "~~/components/ui/card";
 import { ProjectCard } from "~~/components/ProjectCard";
+import { Card, CardContent } from "~~/components/ui/card";
 
 const Home: NextPage = () => {
   // const { address: connectedAddress } = useAccount();
