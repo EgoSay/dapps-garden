@@ -14,11 +14,11 @@ const Stakings: NextPage = () => {
       columns={[
         {
           header: "From",
-          accessor: (args) => <Address address={args[0]} />,
+          accessor: args => <Address address={args[0]} />,
         },
         {
           header: "Value",
-          accessor: (args) => `${formatEther(args[1] || 0n)} ETH`,
+          accessor: args => `${formatEther(args[1] || 0n)} ETH`,
         },
       ]}
     />

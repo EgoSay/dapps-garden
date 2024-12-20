@@ -20,7 +20,7 @@ const IpfsDownload: NextPage = () => {
     setLoading(true);
     const notificationId = notification.loading("Getting data from IPFS");
     try {
-      const metaData = await getMetadataFromIPFS(ipfsPath);
+      const metaData = await getMetadataFromIPFS(ipfsPath, "");
       notification.remove(notificationId);
       notification.success("Downloaded from IPFS");
 

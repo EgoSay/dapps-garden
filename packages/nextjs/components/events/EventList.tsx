@@ -7,7 +7,7 @@ import { useScaffoldEventHistory } from "~~/hooks/scaffold-eth";
 
 interface EventListProps {
   contractName: "YourCollectible" | "Staker";
-  eventName: "Transfer" | "Stake";
+  eventName: "Transfer" | "Staking";
   title: string;
   description?: string;
   columns: {
@@ -41,7 +41,7 @@ export const EventList = ({ contractName, eventName, title, description, columns
       <Card>
         <CardHeader className="space-y-1">
           <CardTitle className="text-2xl font-bold">{title}</CardTitle>
-          {description && (<p className="text-sm text-muted-foreground">{description}</p>)}
+          {description && <p className="text-sm text-muted-foreground">{description}</p>}
         </CardHeader>
         <CardContent>
           <div className="rounded-md border">
@@ -78,4 +78,4 @@ export const EventList = ({ contractName, eventName, title, description, columns
       </Card>
     </div>
   );
-}; 
+};
