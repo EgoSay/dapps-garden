@@ -1,16 +1,9 @@
 "use client";
 
-import { Clock } from 'lucide-react';
-import { useScaffoldEventHistory } from "~~/hooks/scaffold-eth";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "~~/components/ui/table";
+import { Clock } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "~~/components/ui/card";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "~~/components/ui/table";
+import { useScaffoldEventHistory } from "~~/hooks/scaffold-eth";
 
 interface EventListProps {
   contractName: "YourCollectible" | "Staker";
@@ -48,9 +41,7 @@ export const EventList = ({ contractName, eventName, title, description, columns
       <Card>
         <CardHeader className="space-y-1">
           <CardTitle className="text-2xl font-bold">{title}</CardTitle>
-          {description && (
-            <p className="text-sm text-muted-foreground">{description}</p>
-          )}
+          {description && (<p className="text-sm text-muted-foreground">{description}</p>)}
         </CardHeader>
         <CardContent>
           <div className="rounded-md border">
@@ -75,9 +66,7 @@ export const EventList = ({ contractName, eventName, title, description, columns
                   events.map((event, index) => (
                     <TableRow key={index}>
                       {columns.map((column, colIndex) => (
-                        <TableCell key={colIndex}>
-                          {column.accessor(event.args)}
-                        </TableCell>
+                        <TableCell key={colIndex}>{column.accessor(event.args)}</TableCell>
                       ))}
                     </TableRow>
                   ))

@@ -90,9 +90,7 @@ export const StakeContractInteraction = ({ address }: { address?: string }) => {
         } shadow-xl dark:shadow-gray-800/30 transition-all duration-200`}
       >
         <div className="flex flex-col w-full items-center mb-8">
-          <h2 className="text-2xl font-bold mb-4 text-primary dark:text-white">
-            Staker Contract
-          </h2>
+          <h2 className="text-2xl font-bold mb-4 text-primary dark:text-white">Staker Contract</h2>
           <Address address={address} size="xl" />
         </div>
 
@@ -105,7 +103,6 @@ export const StakeContractInteraction = ({ address }: { address?: string }) => {
             </p>
           </div>
         )}
-        
         <div className="grid grid-cols-2 gap-4 w-full mb-8">
           <div className="flex flex-col items-center p-4 rounded-lg bg-gray-50 dark:bg-gray-800">
             <Wallet className="w-6 h-6 mb-2 text-primary dark:text-emerald-400" />
@@ -151,7 +148,7 @@ export const StakeContractInteraction = ({ address }: { address?: string }) => {
                 className="input flex-1 bg-gray-50 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:focus:border-emerald-500"
                 placeholder="输入质押数量"
                 value={stakeAmount}
-                onChange={(e) => setStakeAmount(e.target.value)}
+                onChange={e => setStakeAmount(e.target.value)}
                 step="0.01"
               />
               <button

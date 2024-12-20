@@ -2,8 +2,8 @@
 
 import type { NextPage } from "next";
 import { formatEther } from "viem";
-import { Address } from "~~/components/scaffold-eth";
 import { EventList } from "~~/components/events/EventList";
+import { Address } from "~~/components/scaffold-eth";
 
 const Stakings: NextPage = () => {
   return (

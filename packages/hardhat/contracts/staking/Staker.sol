@@ -72,7 +72,7 @@ contract Staker is Ownable {
     /**
      * 预售结束后，如果没有达到募集目标，则用户可退款
      */
-    function refund() public OnlySuccess {
+    function refund() public OnlyFailed {
         address refunder = msg.sender;
         uint256 refundAmount = stakingParticipantAmount[refunder];
         require(refundAmount > 0, "No refund");
