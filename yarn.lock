@@ -4009,6 +4009,7 @@ __metadata:
     "@rainbow-me/rainbowkit": 2.1.6
     "@tanstack/react-query": ^5.59.15
     "@trivago/prettier-plugin-sort-imports": ^4.3.0
+    "@types/humanize-duration": ^3.27.4
     "@types/node": ^18.19.50
     "@types/react": ^18.3.5
     "@uniswap/sdk-core": ^5.8.2
@@ -4028,7 +4029,7 @@ __metadata:
     eslint-config-next: ^14.2.15
     eslint-config-prettier: ^8.10.0
     eslint-plugin-prettier: ^5.2.1
-    humanize-duration: ^3.28.0
+    humanize-duration: ^3.32.1
     input-otp: ^1.4.1
     kubo-rpc-client: ^5.0.1
     lucide-react: ^0.460.0
@@ -4630,6 +4631,13 @@ __metadata:
     "@types/minimatch": "*"
     "@types/node": "*"
   checksum: 6ae717fedfdfdad25f3d5a568323926c64f52ef35897bcac8aca8e19bc50c0bd84630bbd063e5d52078b2137d8e7d3c26eabebd1a2f03ff350fff8a91e79fc19
+  languageName: node
+  linkType: hard
+
+"@types/humanize-duration@npm:^3.27.4":
+  version: 3.27.4
+  resolution: "@types/humanize-duration@npm:3.27.4"
+  checksum: aa7fa41af839021c846a1728d2f097b7885f80acbc5050623a9804d23fd8fee19d2654eaae331f000a4e551b88d99cd0b5f6cc97aa99f869b9205f6248066827
   languageName: node
   linkType: hard
 
@@ -10423,7 +10431,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"humanize-duration@npm:^3.28.0":
+"humanize-duration@npm:^3.32.1":
   version: 3.32.1
   resolution: "humanize-duration@npm:3.32.1"
   checksum: 17f6f2ec09a931eb0bf7de1fc8ac01f90174f366f60390289bd0797c6e4545255bd5d770dd18909c9b21685d76cc190b3a8ec880d2ecc088a1ad032e0d2f57cb
