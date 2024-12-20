@@ -1,37 +1,33 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Collectible } from "./MyHoldings"
-import { Address, AddressInput } from "~~/components/scaffold-eth"
-import { useScaffoldWriteContract } from "~~/hooks/scaffold-eth"
-import { Card, CardContent } from "~~/components/ui/card"
-import { Badge } from "~~/components/ui/badge"
-import { Button } from "~~/components/ui/button"
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "~~/components/ui/tooltip"
+import { useState } from "react";
+import { Collectible } from "./MyHoldings";
+import { Address, AddressInput } from "~~/components/scaffold-eth";
+import { Badge } from "~~/components/ui/badge";
+import { Button } from "~~/components/ui/button";
+import { Card, CardContent } from "~~/components/ui/card";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "~~/components/ui/tooltip";
+import { useScaffoldWriteContract } from "~~/hooks/scaffold-eth";
 
 export const NFTCard = ({ nft }: { nft: Collectible }) => {
-  const [transferToAddress, setTransferToAddress] = useState("")
-  const { writeContractAsync } = useScaffoldWriteContract("YourCollectible")
+  const [transferToAddress, setTransferToAddress] = useState("");
+  const { writeContractAsync } = useScaffoldWriteContract("YourCollectible");
 
   const handleTransfer = async () => {
     try {
       await writeContractAsync({
         functionName: "transferFrom",
         args: [nft.owner, transferToAddress, BigInt(nft.id.toString())],
-      })
+      });
     } catch (err) {
-      console.error("Error calling transferFrom function")
+      console.error("Error calling transferFrom function", err);
     }
-  }
+  };
 
   return (
     <Card className="w-[300px] overflow-hidden bg-card hover:shadow-lg transition-shadow duration-200">
       <div className="relative aspect-square">
-        <img
-          src={nft.image}
-          alt={nft.name}
-          className="object-cover w-full h-full"
-        />
+        <img src={nft.image} alt={nft.name} className="object-cover w-full h-full" />
         <div className="absolute top-2 left-2 px-2 py-1 bg-black/60 backdrop-blur-sm rounded-md">
           <span className="text-white text-sm font-medium">#{nft.id}</span>
         </div>
@@ -64,21 +60,16 @@ export const NFTCard = ({ nft }: { nft: Collectible }) => {
         </div>
 
         <div className="flex items-center space-x-2">
-          <AddressInput 
+          <AddressInput
             value={transferToAddress}
             placeholder="Receiver address"
             onChange={newValue => setTransferToAddress(newValue)}
           />
-          <Button
-            size="sm"
-            onClick={handleTransfer}
-            disabled={!transferToAddress}
-          >
+          <Button size="sm" onClick={handleTransfer} disabled={!transferToAddress}>
             Send
           </Button>
         </div>
       </CardContent>
     </Card>
-  )
-}
-
+  );
+};

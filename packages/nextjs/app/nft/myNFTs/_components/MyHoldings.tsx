@@ -48,10 +48,10 @@ export const MyHoldings = () => {
           const tokenURI = await yourCollectibleContract.read.tokenURI([tokenId]);
           console.log("=============> tokenURI", tokenURI);
           const ipfsHash = tokenURI.replace("https://ipfs.io/ipfs/", "");
-          console.log("==========>ipfsHash ", ipfsHash)
+          console.log("==========>ipfsHash ", ipfsHash);
           // const tokenIdLength = tokenId.toString.length
           // const ipfsHash = urlPath.substring(urlPath.length - tokenIdLength, urlPath.length)
-          const nftMetadata: NFTMetaData = await getMetadataFromIPFS(ipfsHash);
+          const nftMetadata: NFTMetaData = await getMetadataFromIPFS(ipfsHash, tokenId.toString());
 
           collectibleUpdate.push({
             id: parseInt(tokenId.toString()),

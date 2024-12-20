@@ -1,15 +1,15 @@
 "use client";
 
+import { useState } from "react";
 import { ETHToPrice } from "./EthToPrice";
 import humanizeDuration from "humanize-duration";
-import { useState } from "react";
+import { ArrowRight, BarChartIcon as ChartBar, Clock, LogOut, TrendingUp, Wallet, Zap } from "lucide-react";
+import { formatEther, parseEther } from "viem";
 import { useAccount } from "wagmi";
 import { Address } from "~~/components/scaffold-eth";
 import { useDeployedContractInfo, useScaffoldReadContract, useScaffoldWriteContract } from "~~/hooks/scaffold-eth";
 import { useTargetNetwork } from "~~/hooks/scaffold-eth/useTargetNetwork";
 import { useWatchBalance } from "~~/hooks/scaffold-eth/useWatchBalance";
-import { ArrowRight, BarChartIcon as ChartBar, Clock, LogOut, TrendingUp, Wallet, Zap } from 'lucide-react';
-import { formatEther, parseEther } from "viem";
 
 export const StakeContractInteraction = ({ address }: { address?: string }) => {
   const { address: connectedAddress } = useAccount();
@@ -79,7 +79,7 @@ export const StakeContractInteraction = ({ address }: { address?: string }) => {
         <div className="flex flex-col items-center gap-2 bg-gradient-to-r from-emerald-500 to-emerald-700 text-white rounded-xl p-6 mt-12 w-full max-w-lg animate-fade-in">
           <p className="block m-0 font-semibold text-xl">🎉 Staking Successfully Completed! 🎉</p>
           <div className="flex items-center text-lg">
-            <ETHToPrice className="text-white" value={totalReceivedETH ? formatEther(totalReceivedETH) : '0'} />
+            <ETHToPrice className="text-white" value={totalReceivedETH ? formatEther(totalReceivedETH) : "0"} />
             <p className="block m-0 ml-2">staked</p>
           </div>
         </div>
@@ -99,7 +99,7 @@ export const StakeContractInteraction = ({ address }: { address?: string }) => {
             <Clock className="w-6 h-6 mb-2 text-primary dark:text-emerald-400" />
             <p className="text-sm text-gray-500 dark:text-gray-400 text-center">Time Left</p>
             <p className="font-bold text-center dark:text-white">
-              {timeLeft ? humanizeDuration(Number(timeLeft) * 1000) : '0'}
+              {timeLeft ? humanizeDuration(Number(timeLeft) * 1000) : "0"}
             </p>
           </div>
         )}
@@ -108,7 +108,7 @@ export const StakeContractInteraction = ({ address }: { address?: string }) => {
             <Wallet className="w-6 h-6 mb-2 text-primary dark:text-emerald-400" />
             <p className="text-sm text-gray-500 dark:text-gray-400">You Staked</p>
             <p className="font-bold dark:text-white">
-              {myStake ? formatEther(myStake) : '0'} {targetNetwork.nativeCurrency.symbol}
+              {myStake ? formatEther(myStake) : "0"} {targetNetwork.nativeCurrency.symbol}
             </p>
           </div>
           <div className="flex flex-col items-center p-4 rounded-lg bg-gray-50 dark:bg-gray-800">
@@ -181,4 +181,3 @@ export const StakeContractInteraction = ({ address }: { address?: string }) => {
     </div>
   );
 };
-

@@ -1,14 +1,10 @@
 const nftsMetadata = [
   {
-    description: "It's actually a bison?",
+    description: "NFT-Garden1",
     external_url: "https://austingriffith.com/portfolio/paintings/", // <-- this can link to a page for the specific file too
-    image: "https://austingriffith.com/images/paintings/buffalo.jpg",
+    image: "https://3bcaf57.webp.li/myblog/dapps-garden-nftn1.avif",
     name: "Buffalo",
     attributes: [
-      {
-        trait_type: "BackgroundColor",
-        value: "green",
-      },
       {
         trait_type: "Eyes",
         value: "googly",
@@ -20,15 +16,11 @@ const nftsMetadata = [
     ],
   },
   {
-    description: "What is it so worried about?",
+    description: "NFT-Garden2",
     external_url: "https://austingriffith.com/portfolio/paintings/", // <-- this can link to a page for the specific file too
-    image: "https://austingriffith.com/images/paintings/zebra.jpg",
+    image: "https://3bcaf57.webp.li/myblog/dapps-garden-nftn2.avif",
     name: "Zebra",
     attributes: [
-      {
-        trait_type: "BackgroundColor",
-        value: "blue",
-      },
       {
         trait_type: "Eyes",
         value: "googly",
@@ -40,15 +32,11 @@ const nftsMetadata = [
     ],
   },
   {
-    description: "What a horn!",
+    description: "NFT-Garden3",
     external_url: "https://austingriffith.com/portfolio/paintings/", // <-- this can link to a page for the specific file too
-    image: "https://austingriffith.com/images/paintings/rhino.jpg",
+    image: "https://3bcaf57.webp.li/myblog/dapps-garden-nftn3.avif",
     name: "Rhino",
     attributes: [
-      {
-        trait_type: "BackgroundColor",
-        value: "pink",
-      },
       {
         trait_type: "Eyes",
         value: "googly",
@@ -60,15 +48,11 @@ const nftsMetadata = [
     ],
   },
   {
-    description: "Is that an underbyte?",
+    description: "NFT-Garden4",
     external_url: "https://austingriffith.com/portfolio/paintings/", // <-- this can link to a page for the specific file too
-    image: "https://austingriffith.com/images/paintings/fish.jpg",
+    image: "https://3bcaf57.webp.li/myblog/dapps-garden-nftn4.avif",
     name: "Fish",
     attributes: [
-      {
-        trait_type: "BackgroundColor",
-        value: "blue",
-      },
       {
         trait_type: "Eyes",
         value: "googly",
@@ -80,15 +64,11 @@ const nftsMetadata = [
     ],
   },
   {
-    description: "So delicate.",
+    description: "NFT-Garden5",
     external_url: "https://austingriffith.com/portfolio/paintings/", // <-- this can link to a page for the specific file too
-    image: "https://austingriffith.com/images/paintings/flamingo.jpg",
+    image: "https://3bcaf57.webp.li/myblog/dapps-garden-nftn5.avif",
     name: "Flamingo",
     attributes: [
-      {
-        trait_type: "BackgroundColor",
-        value: "black",
-      },
       {
         trait_type: "Eyes",
         value: "googly",
@@ -100,15 +80,11 @@ const nftsMetadata = [
     ],
   },
   {
-    description: "Raaaar!",
+    description: "NFT-Garden6",
     external_url: "https://austingriffith.com/portfolio/paintings/", // <-- this can link to a page for the specific file too
-    image: "https://austingriffith.com/images/paintings/godzilla.jpg",
+    image: "https://3bcaf57.webp.li/myblog/dapps-garden-nftn6.avif",
     name: "Godzilla",
     attributes: [
-      {
-        trait_type: "BackgroundColor",
-        value: "orange",
-      },
       {
         trait_type: "Eyes",
         value: "googly",

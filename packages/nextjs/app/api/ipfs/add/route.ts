@@ -9,11 +9,11 @@ export async function POST(request: Request) {
     if (!result) {
       throw new Error("Failed to upload to Pinata");
     }
-    
+
     return Response.json({
       IpfsHash: result.IpfsHash,
       PinSize: result.PinSize,
-      Timestamp: result.Timestamp
+      Timestamp: result.Timestamp,
     });
   } catch (error) {
     console.error("Error adding to IPFS:", error);
