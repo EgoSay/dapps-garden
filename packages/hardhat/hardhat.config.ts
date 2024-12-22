@@ -56,8 +56,9 @@ const config: HardhatUserConfig = {
       accounts: [deployerPrivateKey],
     },
     sepolia: {
-      url: `https://eth-sepolia.g.alchemy.com/v2/${providerApiKey}`,
+      url: `https://sepolia.infura.io/v3/${process.env.INFURA_KEY}`,
       accounts: [deployerPrivateKey],
+      chainId: 11155111,
     },
     arbitrum: {
       url: `https://arb-mainnet.g.alchemy.com/v2/${providerApiKey}`,
